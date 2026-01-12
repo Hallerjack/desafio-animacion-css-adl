@@ -58,6 +58,46 @@ ul, li {
     list-style: none;
 }
 
+hr {
+    border: none;
+    height: 1px;
+    background-color: #a7a7a7FF;
+    width: 10%;
+    margin: 1em 0;
+}
+
+/* BUTTONS */
+
+.btn-1 {
+    background-color: rgba(0, 0, 0, 0);
+    border: solid 1px #9d9d9d;
+    border-radius: 50px;
+    padding: 1em 2.5em;
+    color: var(--sa-tertiary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-1:hover {
+    border: solid 1px white;
+    transition: 0.3s;
+}
+
+.btn-2 {
+    background-color: var(--sa-tertiary-color);
+    border: none;
+    border-radius: 50px;
+    padding: 1em 2.5em;
+    color: var(--sa-secondary-color);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-2:hover {
+    background-color: #c8c8c8;
+    transition: 0.3s;
+}
+
 /* GRID */
 
 .main-container {
@@ -123,6 +163,8 @@ ul, li {
     font-size: 2em;
 }
 
+/* --- Desktop  Navbar --- */
+
 @media only screen and (min-width: 576px) {
     .navbar {
         flex-direction: column;
@@ -133,16 +175,20 @@ ul, li {
         padding: 0em;
     }
 
+    .logo {
+        margin: 2em 0 0 2em;
+    }
+
     .menu {
         display: flex;
         flex-direction: column;
         line-height: 2em;
         overflow: hidden;
-        padding: 0;
         width: 100%;
     }
     
     .menu a {
+        padding: 0 0 0 3em;
         color: var(--secondary-color);
     }
 
@@ -159,5 +205,66 @@ ul, li {
 
     #burger {
         display: none;
+    }
+}
+
+/* HERO */
+
+.hero {
+    grid-area: hero;
+    height: 45em;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.hero-content {
+    position: absolute;
+    left: 2rem;
+    bottom: 3rem;
+    z-index: 3;
+    color: var(--secondary-color);
+}
+
+.hero-content h1 {
+    font-size: var(--font-lg-size);
+}
+
+.hero-content p {
+    text-transform: uppercase;
+}
+
+.hero-content button {
+    margin-top: 2em;
+}
+
+/* Desktop Hero */
+
+@media only screen and (min-width: 576px) {
+    .hero {
+        height: var(--screen-full-height);
+    }
+
+    .hero-content h1 {
+
+    }
+
+    .hero-content h5 {
+    
     }
 }
