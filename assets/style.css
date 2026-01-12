@@ -1,0 +1,163 @@
+/* AJUSTES GENERALES */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+:root {
+    /* General Colors */
+    --primary-color: #252525;
+    --secondary-color: #ffffff;
+    --tertiary-color: #015a9d;
+    --accent-color: #00cee1;
+
+    /* Font Sizes */
+    --font-xxl-size: 5em;
+    --font-xl-size: 4em;
+    --font-lg-size: 3em;
+    --font-md-size: 2em;
+    --font-sm-size: 1em;
+    --font-xs-size: 0.6em;
+
+    /* Screen heights */
+    --screen-full-height: 100dvh;
+    --screen-xl-height: 8em;
+    --screen-md-height: 5em;
+    --screen-sm-height: 3em;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+    font-size: var(--font-xxl-size);
+}
+
+h2 {
+    font-size: var(--font-xl-size);
+}
+
+h3 {
+    font-size: var(--font-lg-size);
+    font-weight: 400;
+}
+
+p {
+    font-size: var(--font-sm-size);
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style: none;
+}
+
+/* GRID */
+
+.main-container {
+    display: grid;
+    width: 100%;
+    height: auto;
+    grid-template-areas:
+    "navbar"
+    "hero"
+    "gallery"
+    "footer";
+}
+
+/* --- Desktop Grid ---*/
+
+@media only screen and (min-width: 576px) {
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr repeat(4, 1fr);
+        grid-template-areas:
+        "navbar hero hero hero hero"
+        "navbar gallery gallery gallery gallery"
+        "navbar footer footer footer footer";
+    }
+}
+
+/* -------------------- */
+/* -------------------- */
+/* -------------------- */
+
+/* NAVBAR */
+
+.navbar {
+    grid-area: navbar;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 0 2em;
+    height: 5em;
+    width: auto;
+    background-color: var(--primary-color);
+}
+
+.logo {
+    display: flex;
+    justify-content: start;
+    width: auto;
+    height: 3em;
+}
+
+.menu {
+    display: none;
+}
+
+#burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 2em;
+}
+
+@media only screen and (min-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        width: auto;
+        height: 100dvh;
+        padding: 0em;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        line-height: 2em;
+        overflow: hidden;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .menu a {
+        color: var(--secondary-color);
+    }
+
+    .menu li {
+        padding: 0.5em;
+        width: 100%;
+        transition: background-color 1.2s ease-in-out;
+    }
+
+    .menu li:hover {
+        background-color: #00cee1;
+        color: var(--primary-color);
+    }
+
+    #burger {
+        display: none;
+    }
+}
